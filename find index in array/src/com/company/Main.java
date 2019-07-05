@@ -2,6 +2,7 @@ package com.company;
 
 import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -18,21 +19,21 @@ public class Main {
         for (int i = 0; i < 5; i++)
             nums[i] = scanner.nextInt();
         Arrays.sort(nums);
-        int start = 0, end = nums.length - 1, mid = start + (end - start)/2, index = 0;
+        int start = 0, end = nums.length - 1, mid , index = 0;
         System.out.println("Enter a number whose index you want to find: ");
         int target = scanner.nextInt();
         boolean flag = false;
-        while (start+1 < end) {
-            mid = start + (end-start)/2;
+        while (start <= end) {
+            mid = (start+end)/2;
             if (nums[mid]==target) {
                 index = mid;
                 flag = true;
                 break;
             }
             else if (nums[mid]>target)
-                end = mid;
+                end = mid-1;
             else
-                start = mid;
+                start = mid+1;
         }
 
         if (!flag){
@@ -42,7 +43,11 @@ public class Main {
                 index = end;
             else
                 index = end + 1;
+
+            System.out.println("number should be added at index = " + index);
         }
-        System.out.println("index = " + index);
+        else
+            System.out.print(target + " found at index = " + index);
+
     }
 }

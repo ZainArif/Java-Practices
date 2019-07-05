@@ -23,7 +23,7 @@ public class Main {
         if (number == 0 || number ==1)
             System.out.println("Factorial = 1");
         else {
-            for (long i=1;i<=number;i++)
+            for (long i=2;i<=number;i++)
                 res*=i;
             System.out.println("Factorial = " + res);
         }
